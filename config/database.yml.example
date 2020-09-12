@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: 
+  password: 
+
+development:
+  <<: *default
+  database: blog_CIS_development
+
+  test:
+  <<: *default
+  database: blog_CIS_test
+
+production:
+  <<: *default
+  database: blog_CIS_production
+  username: blog_CIS
+  password: <%= ENV['BLOG_CIS_DATABASE_PASSWORD'] %>
